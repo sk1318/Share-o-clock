@@ -12,8 +12,13 @@
  
       <div class="collapse navbar-collapse" id="bs-navi">
         <ul class="nav navbar-nav">
-          <li><a href="#">ホーム</a></li>
-          <li><a href="#">login</a></li>
+          <% if logged_in? %> 
+          <li><%= link_to "ホーム", root_url %></li>
+          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+          <% else%>
+          <li><%= link_to "ログイン", login_path %></li>
+          <% end %>
+          
          
         </ul>
       </div>
