@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
   
   def create
-   @user = User.new(user_params)    # 実装は終わっていないことに注意!
+   @user = User.new(user_params)  # 実装は終わっていないことに注意!
     if @user.save
         log_in @user
        flash[:info] = "ようこそ！！"

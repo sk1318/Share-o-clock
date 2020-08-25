@@ -11,6 +11,7 @@ class MicropostsController < ApplicationController
     end
    end
    
+   
   def show
       @microposts = Micropost.all
   end
