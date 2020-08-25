@@ -1,0 +1,11 @@
+<div class="container">
+    <% @microposts.each do |micropost| %>
+      <div class="panel-group">
+        <div class="panel panel-default">
+    <div class="panel-heading"><%= micropost.user.name %></div>
+    <div class="panel-body"><%= micropost.content %></div>
+    </div>
+    </div>
+
+    <% end %>
+  </div>

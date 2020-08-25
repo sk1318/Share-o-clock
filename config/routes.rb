@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/signup',    to: 'users#new'
   
-  resources :users
-  resources :microposts , only: [:create]
+  resources :users 
+  resources :microposts 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
