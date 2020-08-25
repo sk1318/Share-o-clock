@@ -13,7 +13,7 @@ class MicropostsController < ApplicationController
    
    
   def show
-      @microposts = Micropost.all
+      @microposts = Micropost.paginate(page: params[:page])
   end
    
    private
