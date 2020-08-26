@@ -1,4 +1,5 @@
 class MicropostsController < ApplicationController
+  
    
    def create
     @micropost = current_user.microposts.build(micropost_params)

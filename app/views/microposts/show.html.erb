@@ -8,10 +8,22 @@
              <span class="content">
                <%= micropost.content %>
                <%= image_tag micropost.display_image if micropost.image.attached? %>
+               <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
+               <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   
+               <i class="far fa-thumbs-up" style = "color: #ff2581;"></i>
+               <%= Like.where(post_id: micropost.id).count %>
+               <% end %>
+               <% else %>
+               <%= link_to("/likes/#{micropost.id}/create",{method: "post"}) do %>
+               <i class="far fa-thumbs-up" style = "color: #8899a6;"></i>
+               <%= Like.where(post_id: micropost.id).count %>
+               <% end %>
+                <% end %>
               </span>
          </li>
      </ol>
     </div>
 </div>
+
 <% end %>
 <%= will_paginate %>
