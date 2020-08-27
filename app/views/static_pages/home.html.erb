@@ -5,7 +5,10 @@
         <%= render 'shared/micropost_form' %>
       </section>
     </aside>
-  </div>
+  </div> 
+      <% @music_names.each do |music_name| %>
+      <li><%= link_to("#{music_name}","#") %></li>
+      <% end %>
 <% else %>
 <div class = "container">
   <div class = "jumbotron">
