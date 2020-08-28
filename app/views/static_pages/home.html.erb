@@ -7,7 +7,8 @@
     </aside>
   </div> 
       <% @music_names.each do |music_name| %>
-      <li><%= link_to("#{music_name}","#") %></li>
+      <li><%= "#{@index}"%> <%= link_to(music_name,"music/#{@index}") %></li>
+      <% @index += 1 %>
       <% end %>
 <% else %>
 <div class = "container">

@@ -6,7 +6,7 @@
          <li>
              <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
              <span class="content">
-               <%= micropost.content %>
+               <%=simple_format(micropost.content , align: "center")%>
                <%= image_tag micropost.display_image if micropost.image.attached? %>
                <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
                <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   
