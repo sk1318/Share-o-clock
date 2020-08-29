@@ -1,3 +1,43 @@
 <body>
    <%=simple_format(@musicpost.content , align: "center")%>
+   <%= form_with(model: @micropost, local: true) do |f| %>
+  
+  <div class="field">
+    <%= f.text_area :content, placeholder: "想いを言葉に..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+   <span class="image">
+   <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+<% end %>
+
+
+
+<% @microposts.each do |micropost| %>
+<div class = "row">
+    <div class = "col-md-6 col-md-offset-3">
+     <ol class  = "microposts">
+         <li>
+             <span class="user"><%= micropost.user.name %></span>
+             <span class="content">
+               <%=simple_format(micropost.content , align: "center")%>
+               <%= image_tag micropost.display_image if micropost.image.attached? %>
+               <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
+               <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   
+               <i class="far fa-thumbs-up" style = "color: #ff2581;"></i>
+               <%= Like.where(post_id: micropost.id).count %>
+               <% end %>
+               <% else %>
+               <%= link_to("/likes/#{micropost.id}/create",{method: "post"}) do %>
+               <i class="far fa-thumbs-up" style = "color: #8899a6;"></i>
+               <%= Like.where(post_id: micropost.id).count %>
+               <% end %>
+                <% end %>
+              </span>
+         </li>
+     </ol>
+    </div>
+</div>
+
+<% end %>
 </body>

@@ -2,13 +2,14 @@ class MicropostsController < ApplicationController
   
    
    def create
-    @micropost = current_user.microposts.build(micropost_params)
-    @micropost.image.attach(params[:micropost][:image])
+    @micropost = current_user.microposts.build(content: params[:content])
+    @micropost.music_id = params[:music_id]
+    
     if @micropost.save
       flash[:success] = "投稿しました！"
-      redirect_to "/microposts/show" 
+      redirect_to "/music/#{params[:music_id]}" 
     else
-      render 'static_pages/home'
+      render 'music/show'
     end
    end
    
@@ -18,8 +19,5 @@ class MicropostsController < ApplicationController
   end
    
    private
-   
-   def micropost_params
-      params.require(:micropost).permit(:content, :image)
-   end
+
 end

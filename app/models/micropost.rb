@@ -8,6 +8,7 @@ class Micropost < ApplicationRecord
                                       message: "must be a valid image format" },
                       size:         { less_than: 5.megabytes,
                                       message: "should be less than 5MB" }
+  validates :music_id, presence: true
  
                                       
     def display_image

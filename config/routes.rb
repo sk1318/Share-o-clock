@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/signup',    to: 'users#new'
   get "music/:music_id"  => "music#show"
+  post "music/:music_id" => "microposts#create"
   
   resources :users 
   resources :microposts 
