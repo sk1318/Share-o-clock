@@ -1,0 +1,6 @@
+<%= form_with(model: @music_post, local: true) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "想いを言葉に..." %>
+  </div>
+  <%= f.submit "送信",class: "btn btn-primary" %>
+  <% end %>

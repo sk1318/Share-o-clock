@@ -1,11 +1,9 @@
-<% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-  </div> 
+ <% if logged_in? &&  current_user.admin? %>
+ <%= link_to("新規作成", music_new_path ) %>
+  <% end %>
+  
+  
+ <% if logged_in? %>
       <% @music_names.each do |music_name| %>
       <li><%= "#{@index}"%> <%= link_to(music_name,"music/#{@index}") %></li>
       <% @index += 1 %>
