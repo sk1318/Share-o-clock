@@ -1,25 +1,42 @@
 <body>
-   <%=simple_format(@musicpost.content , align: "center")%>
-   <%= form_with(model: @micropost, local: true) do |f| %>
+    <% if logged_in? &&  current_user.admin? %>
+    <%= link_to("edit","/music/#{params[:music_id]}/edit") %>
+    <% end %>
+    <div class = "container">
+        <div class = "row">
+             <div class = "col-sm-6 col-sm-offset-3">
+               <div class="embed-responsive embed-responsive-16by9">
+             <iframe class = "embed-responsive-item" src="<%= @musicpost.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+             </div>
+        </div>
+        <div class = "row">
+            <div class = "col-sm-6 col-sm-offset-3">
+               <div style="height:300px;overflow:auto;border:1px solid #aaa;padding:10px;">
+                 <%=simple_format(@musicpost.content , align: "center")%>
+               </div> 
+            </div>
+        </div>
+        <div class = "row">
+             <div class = "col-sm-6 col-sm-offset-3">
+                 <%= form_with(model: @micropost, local: true) do |f| %>
   
-  <div class="field">
-    <%= f.text_area :content, placeholder: "想いを言葉に..." %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-   <span class="image">
-   <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  </span>
-<% end %>
-
-
-
-<% @microposts.each do |micropost| %>
-<div class = "row">
-    <div class = "col-md-6 col-md-offset-3">
-     <ol class  = "microposts">
-         <li>
-             <span class="user"><%= micropost.user.name %></span>
-             <span class="content">
+                <div class="field">
+                        <%= gravatar_for current_user%>
+                        <%= f.text_area :content, placeholder: "公開コメントを入力..." %>
+                </div>
+                        <%= f.submit "Post", class: "btn btn-primary" %>
+                 <% end %>
+                 
+               </div>
+        </div>
+        <% @microposts.each do |micropost| %>
+        <div class = "row">
+            <div class = "col-md-6 col-md-offset-3">
+               <ol class  = "microposts">
+                 <li>
+                      <span class="user"><%= micropost.user.name %></span>
+                      <span class="content">
                <%=simple_format(micropost.content , align: "center")%>
                <%= image_tag micropost.display_image if micropost.image.attached? %>
                <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
@@ -33,11 +50,14 @@
                <%= Like.where(post_id: micropost.id).count %>
                <% end %>
                 <% end %>
-              </span>
-         </li>
-     </ol>
-    </div>
-</div>
+                     </span>
+               </li>
+              </ol>
+            </div>
+        </div>
 
-<% end %>
+        <% end %>
+    </div>
+   
+  
 </body>

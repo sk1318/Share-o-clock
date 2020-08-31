@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/signup',    to: 'users#new'
   get "music/:music_id"  => "music#show"
   post "music/:music_id" => "microposts#create"
+  get "music/:music_id/edit" => "music_posts#edit"
+  post "music/:music_id/edit" => "music_posts#update"
   
   resources :users 
   resources :microposts 
