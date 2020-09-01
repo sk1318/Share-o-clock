@@ -1,4 +1,5 @@
 class MusicPostsController < ApplicationController
+     before_action :admin_user
     
     def new
     end
@@ -26,6 +27,10 @@ class MusicPostsController < ApplicationController
        @musicpost.update(content: params[:content],youtube: params[:youtube])
         flash[:success] = "変更を保存しました！"
         redirect_to "/music/#{params[:music_id]}"
+    end
+    
+    def admin_user
+        redirect_to(root_url) unless current_user.admin?
     end
 end
 
