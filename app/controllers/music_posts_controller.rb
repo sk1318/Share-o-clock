@@ -4,7 +4,7 @@ class MusicPostsController < ApplicationController
     end
     
     def create
-     @musicpost = MusicPost.create(content: params[:content],youtube: params[:youtube])
+     @musicpost = MusicPost.create(music_name: params[:music_name],content: params[:content],youtube: params[:youtube])
     if @musicpost.save
       flash[:success] = "投稿しました！"
       redirect_to  music_show_path

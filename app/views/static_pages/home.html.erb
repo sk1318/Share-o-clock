@@ -1,13 +1,18 @@
+ <div class ="container">
  <% if logged_in? &&  current_user.admin? %>
  <%= link_to("新規作成", music_new_path ) %>
   <% end %>
   
   
  <% if logged_in? %>
-      <% @music_names.each do |music_name| %>
-      <li><%= "#{@index}"%> <%= link_to(music_name,"music/#{@index}") %></li>
-      <% @index += 1 %>
-      <% end %>
+ 　<div class = "list-group">
+       <% @musicposts.each do |musicpost| %>
+       <a href = "<%= "/music/#{musicpost.id}" %>" class="list-group-item list-group-item-action"><%= musicpost.music_name %> 
+       <after class="text-right">></after>
+       </a>
+       <% end %>
+ 　</div>
+     
 <% else %>
 <div class = "container">
   <div class = "jumbotron">
@@ -19,3 +24,4 @@
   </div>
 </div>
 <% end %>
+</div>
