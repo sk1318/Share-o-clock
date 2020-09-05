@@ -2,23 +2,23 @@
     <% if logged_in? &&  current_user.admin? %>
     <%= link_to("edit","/music/#{params[:music_id]}/edit") %>
     <% end %>
-    <div class = "container">
+    <div class = "container-fluid">
         <div class = "row">
-             <div class = "col-sm-6 col-sm-offset-3">
+             <div class = "col-md-6 col-md-offset-3">
                <div class="embed-responsive embed-responsive-16by9">
              <iframe class = "embed-responsive-item" src="<%= @musicpost.youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
              </div>
         </div>
         <div class = "row">
-            <div class = "col-sm-6 col-sm-offset-3">
-               <div style="height:300px;overflow:auto;border:1px solid #aaa;padding:10px;">
-                 <%=simple_format(@musicpost.content , align: "center")%>
+            <div class = "col-md-6 col-md-offset-3">
+               <div style="height:500px;overflow:auto;border:1px solid #aaa;padding:10px;">
+                <h2><%=simple_format(@musicpost.content , align: "center")%></h2> 
                </div> 
             </div>
         </div>
         <div class = "row">
-             <div class = "col-sm-6 col-sm-offset-3">
+             <div class = "col-md-6 col-md-offset-3">
                  <%= form_with(model: @micropost, local: true) do |f| %>
   
                 <div class="field">
@@ -35,9 +35,9 @@
             <div class = "col-md-6 col-md-offset-3">
                <ol class  = "microposts">
                  <li>
-                      <span class="user"><%= micropost.user.name %></span>
+                     <h3 style= "display:inline;"> <span class="user"><%= micropost.user.name %></span></h3>
                       <span class="content">
-               <%=simple_format(micropost.content , align: "center")%>
+               <h3 style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h3>
                <%= image_tag micropost.display_image if micropost.image.attached? %>
                <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
                <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   

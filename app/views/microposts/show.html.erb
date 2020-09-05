@@ -4,10 +4,10 @@
     <div class = "col-md-6 col-md-offset-3">
      <ol class  = "microposts">
          <li>
-             <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+           <span class="user"><h3 style= "display:inline;"><%= link_to micropost.user.name, micropost.user %></h3></span>
              <span class="content">
-               <%=simple_format(micropost.content , align: "center")%>
-               <%= image_tag micropost.display_image if micropost.image.attached? %>
+           <h3 style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h3>
+           
                <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
                <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   
                <i class="far fa-thumbs-up" style = "color: #ff2581;"></i>

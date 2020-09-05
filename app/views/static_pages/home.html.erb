@@ -5,16 +5,19 @@
   
   
  <% if logged_in? %>
- 　<div class = "list-group">
-       <% @musicposts.each do |musicpost| %>
-       <a href = "<%= "/music/#{musicpost.id}" %>" class="list-group-item list-group-item-action"><%= musicpost.music_name %> 
-       <after class="text-right">></after>
-       </a>
-       <% end %>
- 　</div>
+ <% @musicposts.each do |musicpost| %>
+ 　 <div class="list-group">
+    <a href="<%= "/music/#{musicpost.id}" %>" class="list-group-item list-group-item-action">
+    <h1 class="list-group-item-heading"><%= musicpost.music_name %> <span>></span></h1>
+    <h3 class="list-group-item-text" style= "display: inline;">one ok rock</h3>
+
+    </a>
+   </div>
+<% end %>
+       
+
      
 <% else %>
-<div class = "container">
   <div class = "jumbotron">
     <h1 style= "text-align: center;">system app</h1>
     <p style= "text-align: center;">今開発中のアプリケーション</p>
