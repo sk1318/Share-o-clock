@@ -20,33 +20,43 @@
         <div class = "row">
              <div class = "col-md-6 col-md-offset-3">
                  <%= form_with(model: @micropost, local: true) do |f| %>
-  
+                <div class="visible-sm visible-xs">
                 <div class="field">
-                        <%= gravatar_for current_user%>
-                        <%= f.text_area :content, placeholder: "公開コメントを入力..." %>
+                        <%= f.text_area :content,class: "big input", placeholder: "公開コメントを入力..."%>
                 </div>
-                        <%= f.submit "Post", class: "btn btn-primary" %>
+                        <%= f.submit "投稿", class: "btn btn-primary big input" %>
+                </div>
+                <div class="visible-md visible-lg">
+                 <div class="field">
+                        <%= f.text_area :content, placeholder: "公開コメントを入力..."%>
+                </div>
+                        <%= f.submit "投稿", class: "btn btn-primary" %>   
+                </div>
                  <% end %>
                  
                </div>
         </div>
+        <div class="col-md-6 col-md-offset-3" style="height:600px;overflow:auto;border:1px solid #aaa;padding:10px;">
         <% @microposts.each do |micropost| %>
         <div class = "row">
             <div class = "col-md-6 col-md-offset-3">
                <ol class  = "microposts">
                  <li>
-                     <h3 style= "display:inline;"> <span class="user"><%= micropost.user.name %></span></h3>
+                     <h1 class="visible-xs visible-sm" style= "display:inline; color:blue;"> <span class="user"><%= micropost.user.name %></span></h1>
+                     <h3 class="visible-lg visible-md" style= "display:inline; color:blue;"> <span class="user"><%= micropost.user.name %></span></h3>
                       <span class="content">
-               <h3 style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h3>
-               <%= image_tag micropost.display_image if micropost.image.attached? %>
+               <h1 class="visible-xs visible-sm" style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h1>
+               <h3 class="visible-lg visible-md" style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h3>
                <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
                <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   
-               <i class="far fa-thumbs-up" style = "color: #ff2581;"></i>
+               <i class="far fa-thumbs-up visible-xs visible-sm" style = "color: #ff2581;font-size:200%;"></i>
+                <i class="far fa-thumbs-up visible-lg visible-md" style = "color: #ff2581;"></i>
                <% end %>
                <%= Like.where(post_id: micropost.id).count %>
                <% else %>
                <%= link_to("/likes/#{micropost.id}/create",{method: "post"}) do %>
-               <i class="far fa-thumbs-up" style = "color: #8899a6;"></i>
+               <i class="far fa-thumbs-up visible-xs visible-sm" style = "color: #8899a6;font-size:200%;"></i>
+               <i class="far fa-thumbs-up visible-lg visible-md" style = "color: #8899a6;"></i>
                <%= Like.where(post_id: micropost.id).count %>
                <% end %>
                 <% end %>
@@ -55,7 +65,6 @@
               </ol>
             </div>
         </div>
-
         <% end %>
     </div>
    

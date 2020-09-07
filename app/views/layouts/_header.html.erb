@@ -6,7 +6,7 @@
       <a class="navbar-brand" href="#">ONE OK ROCK</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav" style="font-size: 200%;">
+      <ul class="nav navbar-nav" style="font-size: 200%; font-weight:">
         <% if logged_in? %>
         <li><%= link_to "ホーム", root_path %></h1>  
         <li><%= link_to "自分の投稿一覧", user_path(current_user) %></li> 
@@ -14,7 +14,6 @@
         <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
         <li><%= link_to "設定", edit_user_path(current_user) %></li>
          <% else%>
-           <li><%= link_to "ログイン", login_path %></li>
         <li> <%= link_to "ホーム", root_path %></li> 　
           <% end %>
       </ul>
@@ -41,7 +40,6 @@
         <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
         <li><%= link_to "設定", edit_user_path(current_user) %></li>
          <% else%>
-           <li><%= link_to "ログイン", login_path %></li>
         <li> <%= link_to "ホーム", root_path %></li> 　
           <% end %>
       </ul>

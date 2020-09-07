@@ -1,30 +1,72 @@
+ <body style="background-color: #F8F8FF;">
  <div class ="container">
- <% if logged_in? &&  current_user.admin? %>
- <%= link_to("新規作成", music_new_path ) %>
-  <% end %>
+       <% if logged_in? &&  current_user.admin? %>
+         <%= link_to("新規作成", music_new_path ) %>
+          <% end %>
   
   
- <% if logged_in? %>
- <% @musicposts.each do |musicpost| %>
- 　 <div class="list-group">
-    <a href="<%= "/music/#{musicpost.id}" %>" class="list-group-item list-group-item-action">
-    <h1 class="list-group-item-heading"><%= musicpost.music_name %> <span>></span></h1>
-    <h3 class="list-group-item-text" style= "display: inline;">one ok rock</h3>
+       <% if logged_in? %>
+         <% @musicposts.each do |musicpost| %>
+        　 <div class="list-group">
+             <a href="<%= "/music/#{musicpost.id}" %>" class="list-group-item list-group-item-action">
+                    <h1 class="list-group-item-heading"><%= musicpost.music_name %> <span>></span></h1>
+                   <h3 class="list-group-item-text" style= "display: inline;">one ok rock</h3>
+             </a>
+           </div>
+         <% end %>
+       <% else %>
+           <div class= "container-fluid">
+  
+             <div class="visible-sm visible-xs">
+            
+                <h1 style="font-size: 400%;color:#6495ED;font-weight: 900; text-align: center;">System App</h1>
+                <h2 style="font-weight: 600;margin-bottom: 200px; text-align: center;">System AppでONE OK ROCKを共有しよう</h2>
+            
+              
+         
+                   <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
-    </a>
-   </div>
-<% end %>
-       
+                  <%= f.label :email,class: "big" %>
+                  <%= f.email_field :email, class: 'form-control input big margin'  %>
 
-     
-<% else %>
-  <div class = "jumbotron">
-    <h1 style= "text-align: center;">system app</h1>
-    <p style= "text-align: center;">今開発中のアプリケーション</p>
-    <p style="text-align: center" margin-right: auto;">
-   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-    </p>
+                  <%= f.label :password,class: "big" %>
+                  <%= f.password_field :password, class: 'form-control input big margin' %>
+
+                   <%= f.submit "ログイン", class: "btn btn-primary input big margin" %>
+                   <% end %>
+
+                  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+                
+            </div>
+           </div>
+  
+  
+  
+  
+  
+  <div class="visible-md visible-lg">
+  <div class="row">
+  <div class="col-md-6">
+   <h1 style="font-size: 400%;color:#6495ED;font-weight: 900;">System App</h1>
+   <h2>System AppでONE OK ROCKを共有しよう</h2>
   </div>
-</div>
+  <div class="col-md-6">
+    <h1>Log in</h1>
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+  </div>
+  </div>
 <% end %>
 </div>
+</body>
