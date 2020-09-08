@@ -1,16 +1,16 @@
 <% @microposts.each do |micropost| %>
         <div class = "row">
-            <div class = "col-md-8 col-md-offset-2">
+            <div class = "col-md-6 col-md-offset-3">
                <ol class  = "microposts">
                  <li>
-                     <h3 style= "display:inline;"> 
                      <span class="user">
                        <%= link_to(micropost.user.name ,"/music/#{micropost.music_id}") %>
                      </span>
-                     </h3>
+                     
                       <span class="content">
-               <h1 class="visible-xs visible-sm"style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h1>
-               <h3 class="visible-md visible-lg"style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h3>
+               <h1 class="visible-xs visible-sm" style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h1>
+               <h3 class="visible-md visible-lg" style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h3>
+            
                <% if Like.find_by(user_id: current_user.id, post_id: micropost.id) %>
                <%= link_to("/likes/#{micropost.id}/destroy",{method: "post"}) do %>   
                <i class="far fa-thumbs-up visible-md visible-lg" style = "color: #ff2581;"></i>
@@ -29,5 +29,5 @@
               </ol>
             </div>
         </div>
+
         <% end %>
-    
