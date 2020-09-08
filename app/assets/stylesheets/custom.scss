@@ -108,3 +108,26 @@ span.image {
 .margin{
   margin-bottom:100px;
 }
+.f-container1{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  
+}
+.f-item1{
+  font-size: 200%;
+  font-weight: 600;
+}
+
+.f-container2{
+  width: 100%;
+  height: 50px;
+   display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.f-item2{
+  margin: 0px 40px;
+}

@@ -1,0 +1,9 @@
+  <% if logged_in? %>
+        <li><%= link_to "ホーム", root_path %></h1>  
+        <li><%= link_to "自分の投稿一覧", user_path(current_user) %></li> 
+        <li><%= link_to "みんなの投稿", "/microposts/show" %></li>  
+        <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+        <li><%= link_to "設定", edit_user_path(current_user) %></li>
+         <% else%>
+        <li> <%= link_to "ホーム", root_path %></li> 　
+          <% end %>

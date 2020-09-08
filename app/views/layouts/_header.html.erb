@@ -1,49 +1,29 @@
 <div class="visible-sm visible-xs">
-   <nav class="navbar navbar-default" style="height: 160px;  width:100%;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-
-      <a class="navbar-brand" href="#">ONE OK ROCK</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav" style="font-size: 200%; font-weight:">
-        <% if logged_in? %>
-        <li><%= link_to "ホーム", root_path %></h1>  
-        <li><%= link_to "自分の投稿一覧", user_path(current_user) %></li> 
-        <li><%= link_to "みんなの投稿", "/microposts/show" %></li>  
-        <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-        <li><%= link_to "設定", edit_user_path(current_user) %></li>
-         <% else%>
-        <li> <%= link_to "ホーム", root_path %></li> 　
-          <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
-</nav>
-</div>
-  
-  
-<div class="visible-md visible-lg">
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-
-      <a class="navbar-brand" href="#">ONE OK ROCK</a> 
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <% if logged_in? %>
-        <li> <%= link_to "ホーム", root_path %></li> 
-        <li><%= link_to "自分の投稿一覧", user_path(current_user) %></li> 
-        <li><%= link_to "みんなの投稿", "/microposts/show" %></li>  
-        <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-        <li><%= link_to "設定", edit_user_path(current_user) %></li>
-         <% else%>
-        <li> <%= link_to "ホーム", root_path %></li> 　
-          <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
-</div>
+<div class="well well-lg f-container1">
+ <% if logged_in? %>
+  <div class="f-item1"><%= link_to "ホーム", root_path %></div>
+  <div class="f-item1"><%= link_to "自分の投稿一覧", user_path(current_user)%></div>
+  <div  class="f-item1"><%= link_to "みんなの投稿", "/microposts/show" %></div>
+   <div  class="f-item1"><%= link_to "ログアウト", logout_path, method: :delete %></div>
+   <div  class="f-item1"><%= link_to "設定", edit_user_path(current_user) %></div>
+   <% else %>
+   <div  class="f-item1"><%= link_to "ホーム", root_path %></div>
+   <% end %>
+ </div>
+ </div>
+ 
+ 
+ <div class="visible-lg visible-md">
+<div class="well well-lg f-container2">
+ <% if logged_in? %>
+  <div class="f-item2"><%= link_to "ホーム", root_path %></div>
+  <div class="f-item2"><%= link_to "自分の投稿一覧", user_path(current_user)%></div>
+  <div  class="f-item2"><%= link_to "みんなの投稿", "/microposts/show" %></div>
+   <div  class="f-item2"><%= link_to "ログアウト", logout_path, method: :delete %></div>
+   <div  class="f-item2"><%= link_to "設定", edit_user_path(current_user) %></div>
+   <% else %>
+   <div  class="f-item2"><%= link_to "ホーム", root_path %></div>
+   <% end %>
+ </div>
+ </div>
+   

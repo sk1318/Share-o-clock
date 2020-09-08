@@ -9,7 +9,8 @@ class MicropostsController < ApplicationController
       flash[:success] = "投稿しました！"
       redirect_to "/music/#{params[:music_id]}" 
     else
-      render 'music/show'
+      redirect_to("/music/#{params[:music_id]}")
+      flash[:danger] = "投稿できませんでした"
     end
    end
    
