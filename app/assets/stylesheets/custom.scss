@@ -110,7 +110,7 @@ span.image {
 }
 .f-container1{
   width: 100%;
-  height: 70px;
+  height: 100px;
   display: flex;
   justify-content: space-around;
   overflow: hidden;
@@ -130,4 +130,12 @@ span.image {
 }
 .f-item2{
   margin: 0px 40px;
+}
+
+.fixed{
+  position: fixed;
+  z-index: 5;
+}
+.low{
+  margin-top:50px;
 }

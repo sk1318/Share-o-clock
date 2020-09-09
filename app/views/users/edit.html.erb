@@ -1,23 +1,47 @@
-<% provide(:button_text, "保存する") %>
-<div class = "row" >
-    <div class = "col-xs-6 col-xs-offset-3" >
-        <h1>編集ページ </h1>
+
+<div class="visible-xs visible-sm">
+        <div class="container">
+        <h1 style="font-size: 400%;font-weight: 600; text-align: center;">編集ページ </h1>
         <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
+      <%= f.label :name,"名前" ,class: "big" %>
+      <%= f.text_field :name, class: 'form-control input big' %>
+
+      <%= f.label :email,"メールアドレス",class: "big" %>
+      <%= f.email_field :email, class: 'form-control input big' %>
+
+      <%= f.label :password,"パスワード",class: "big" %>
+      <%= f.password_field :password, class: 'form-control input big ' %>
+
+      <%= f.label :password_confirmation, "パスワード確認",class: "big" %>
+      <%= f.password_field :password_confirmation, class: 'form-control input big margin' %>
+
+      <%= f.submit "保存", class: "btn btn-primary input big" %>
+    <% end %>
+    </div>
+</div>
+
+
+<div class="visible-lg visible-md">
+    <div class="col-md-6 col-md-offset-3">
+    <h3 style="text-align: center;">編集ページ</h3>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name,"名前" %>
       <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :email %>
+      <%= f.label :email,"メールアドレス" %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
+      <%= f.label :password,"パスワード" %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "保存", class: "btn btn-primary",style: "width: 100%; margin-top: 20px;" %>
     <% end %>
     </div>
 </div>

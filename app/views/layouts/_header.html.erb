@@ -1,6 +1,5 @@
-
 <div class="visible-sm visible-xs">
-<div class="well well-lg f-container1">
+<div class="well well-lg f-container1 fixed">
  <% if logged_in? %>
   <div class="f-item1"><%= link_to "ホーム", root_path %></div>
   <div class="f-item1"><%= link_to "自分の投稿一覧", user_path(current_user)%></div>
@@ -14,8 +13,8 @@
  </div>
  
  
- <div class="visible-lg visible-md">
-<div class="well well-lg f-container2">
+ <div class="visible-lg visible-md ">
+<div class="well well-lg f-container2 fixed">
  <% if logged_in? %>
   <div class="f-item2"><%= link_to "ホーム", root_path %></div>
   <div class="f-item2"><%= link_to "自分の投稿一覧", user_path(current_user)%></div>
@@ -27,4 +26,3 @@
    <% end %>
  </div>
  </div>
-   
