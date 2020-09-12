@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   
   def create
    @user = User.new(user_params) # 実装は終わっていないことに注意!
-   @user.image_name ="default.jpg"
+   @user.image_name = "default.png"
     if @user.save
         log_in @user
        flash[:info] = "ようこそ！！"
@@ -30,6 +30,11 @@ class UsersController < ApplicationController
   
   def update
       @user = User.find(params[:id])
+     if  params[:user][:image]
+    @user.image_name = "#{@user.id}.jpg"
+    image = params[:user][:image]
+    File.binwrite("public/user_images/#{@user.image_name}",image.read)
+     end
     if  @user.update(user_params)
         flash[:success] = "変更を保存しました！"
         redirect_to @user
@@ -37,7 +42,6 @@ class UsersController < ApplicationController
         render "edit"
     end
   end
-  
   def logged_in_user
       unless logged_in?
         flash[:danger] = "Please log in."
@@ -52,7 +56,7 @@ class UsersController < ApplicationController
  
    def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation,:image_name)
    end
    
    
