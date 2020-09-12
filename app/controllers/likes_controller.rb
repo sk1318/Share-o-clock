@@ -4,6 +4,7 @@ class LikesController < ApplicationController
    @like.save
    @micropost = Micropost.find_by(id: params[:post_id])
    redirect_to("/music/#{@micropost.music_id}")
+   flash[:success] = "いいねしました！"
     end
     
     def destroy

@@ -4,7 +4,10 @@
                <ol class  = "microposts">
                  <li>
                      <span class="user">
-                       <%= link_to(micropost.user.name ,"/music/#{micropost.music_id}") %>
+                       <% musicpost = MusicPost.find_by(id: micropost.music_id) %>
+                     <h1 class="visible-xs visible-sm"><%= link_to(musicpost.music_name ,"/music/#{micropost.music_id}") %></h1> 
+                     <h3 class="visible-lg visible-md"><%= link_to(musicpost.music_name ,"/music/#{micropost.music_id}") %></h3>  
+
                      </span>
                      
                       <span class="content">
