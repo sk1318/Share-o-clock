@@ -14,8 +14,9 @@
       <%= f.password_field :password, class: 'form-control input big ' %>
 
       <%= f.label :password_confirmation, "パスワード確認",class: "big" %>
-      <%= f.password_field :password_confirmation, class: 'form-control input big margin' %>
-
+      <%= f.password_field :password_confirmation, class: 'form-control input big ' %>
+      <%= f.label "画像",class: "big"%>
+      <%= f.file_field :image,class: "big margin" %>
       <%= f.submit "保存", class: "btn btn-primary input big" %>
     <% end %>
     </div>
@@ -40,7 +41,7 @@
       <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       
-      <p>画像</p>
+      <%= f.label "画像" %>
       <%= f.file_field :image %>
 
       <%= f.submit "保存", class: "btn btn-primary",style: "width: 100%; margin-top: 20px;" %>
