@@ -5,8 +5,8 @@
      <ol class  = "microposts">
          <li>
            <span class="user">
-            <h1  class="visible-xs visible-sm"style= "display:inline;"><%= link_to(micropost.user.name,"/music/#{micropost.music_id}") %></h3>
-            <h3  class="visible-md visible-lg"style= "display:inline;"><%= link_to(micropost.user.name,"/music/#{micropost.music_id}") %></h3>
+            <h1  class="visible-xs visible-sm"style= "display:inline;"><%= link_to(micropost.user.name,"/music/#{micropost.music_id}",{class: "link"}) %></h3>
+            <h3  class="visible-md visible-lg"style= "display:inline;"><%= link_to(micropost.user.name,"/music/#{micropost.music_id}",{class: "link"}) %></h3>
             </span>
              <span class="content">
            <h1  class="visible-xs visible-sm"style= "display:inline;"><%=simple_format(micropost.content , align: "center")%></h1>
@@ -19,8 +19,8 @@
                 <%= Like.where(post_id: micropost.id).count %>
                <% else %>
                <%= link_to("/likes/#{micropost.id}/create",{method: "post"}) do %>
-               <i class="far fa-thumbs-up  visible-xs visible-sm" style = "color: #8899a6;font-size:200%;"></i>
-               <i class="far fa-thumbs-up visible-lg visible-md"  style = "color: #8899a6"></i>
+               <i class="far fa-thumbs-up  visible-xs visible-sm" style = "color: white;font-size:200%;"></i>
+               <i class="far fa-thumbs-up visible-lg visible-md"  style = "color: white;"></i>
                <% end %>
                <%= Like.where(post_id: micropost.id).count %>
                 <% end %>

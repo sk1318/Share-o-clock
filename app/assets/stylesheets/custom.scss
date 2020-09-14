@@ -144,3 +144,17 @@ span.image {
   width:100px;height:100px;	object-fit:cover; border-radius: 50px;
   
 }
+
+.main_container{
+  background-image: url("/images/night.jpg");
+  background-size: cover;
+  color: white;
+  background-attachment: fixed;
+}
+.link{
+  color: white;
+  text-decoration: underline;
+}
+.link:hover{
+  color : #ff7043;
+}

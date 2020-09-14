@@ -1,4 +1,4 @@
- <body style="background-color: #F8F8FF;">
+ <body class="main_container">
  <div class ="container">
        <% if logged_in? &&  current_user.admin? %>
          <%= link_to("新規作成", music_new_path ) %>
@@ -19,8 +19,8 @@
   
              <div class="visible-sm visible-xs">
             
-                <h1 style="font-size: 400%;color:#6495ED;font-weight: 900; text-align: center;">Share o'clock</h1>
-                <h2 style="font-weight: 600;margin-bottom: 200px; text-align: center;">ワンオクソングで時を共有しよう</h2>
+                <h1 style="font-size: 500%;text-align: center;">Share o'clock</h1>
+                <h2 style="margin-bottom: 200px; text-align: center;">ワンオクソングで時を共有しよう</h2>
             
               
          
@@ -35,7 +35,7 @@
                    <%= f.submit "ログイン", class: "btn btn-primary input big margin" %>
                    <% end %>
 
-                  <h1><%= link_to "新規登録はこちら", signup_path %></h1>
+                  <h1><%= link_to "新規登録はこちら", signup_path,{class: "link"} %></h1>
                 
             </div>
            </div>
@@ -47,7 +47,7 @@
   <div class="visible-md visible-lg">
   <div class="row">
   <div class="col-md-6">
-   <h1 style="font-size: 400%;color:#6495ED;font-weight: 900;">Share o'clock </h1>
+   <h1 style="font-size: 400%;font-weight: 900;">Share o'clock </h1>
    <h2>ワンオクソングで時を共有しよう</h2>
   </div>
   <div class="col-md-6">
@@ -63,7 +63,7 @@
       <%= f.submit "ログイン", class: "btn btn-primary", style: "width: 100%; margin-top: 20px;" %>
     <% end %>
 
-    <h3> <%= link_to "新規登録はこちら", signup_path %></h3>
+    <h3> <%= link_to "新規登録はこちら", signup_path,{class: "link"} %></h3>
   </div>
   </div>
   </div>

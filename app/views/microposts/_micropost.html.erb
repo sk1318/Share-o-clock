@@ -5,8 +5,8 @@
                  <li>
                      <span class="user">
                        <% musicpost = MusicPost.find_by(id: micropost.music_id) %>
-                     <h1 class="visible-xs visible-sm"><%= link_to(musicpost.music_name ,"/music/#{micropost.music_id}") %></h1> 
-                     <h3 class="visible-lg visible-md"><%= link_to(musicpost.music_name ,"/music/#{micropost.music_id}") %></h3>  
+                     <h1 class="visible-xs visible-sm"><%= link_to(musicpost.music_name ,"/music/#{micropost.music_id}",{class: "link"}) %></h1> 
+                     <h3 class="visible-lg visible-md"><%= link_to(musicpost.music_name ,"/music/#{micropost.music_id}",{class: "link"}) %></h3>  
 
                      </span>
                      
@@ -19,12 +19,12 @@
                <i class="far fa-thumbs-up visible-md visible-lg" style = "color: #ff2581;"></i>
                <i class="far fa-thumbs-up visible-xs visible-sm" style = "color: #ff2581; font-size:200%;"></i>
                <% end %>
-               <%= Like.where(post_id: micropost.id).count %>
+                <p style = "color: white;"><%= Like.where(post_id: micropost.id).count%></p>
                <% else %>
                <%= link_to("/likes/#{micropost.id}/create",{method: "post"}) do %>
-               <i class="far fa-thumbs-up visible-md visible-lg" style = "color: #8899a6;"></i>
-               <i class="far fa-thumbs-up visible-xs visible-sm" style = "color: #8899a6; font-size:200%;"></i>
-               <%= Like.where(post_id: micropost.id).count %>
+               <i class="far fa-thumbs-up visible-md visible-lg" style = "color: white;"></i>
+               <i class="far fa-thumbs-up visible-xs visible-sm" style = "color: white; font-size:200%;"></i>
+                <p style = "color: white;"><%= Like.where(post_id: micropost.id).count%></p>
                <% end %>
                 <% end %>
                      </span>
