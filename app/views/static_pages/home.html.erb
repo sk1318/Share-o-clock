@@ -1,7 +1,7 @@
  <body class="main_container">
  <div class ="container">
        <% if logged_in? &&  current_user.admin? %>
-         <%= link_to("新規作成", music_new_path ) %>
+         <%= link_to("新規作成", music_new_path,{style: "color: white;"} ) %>
           <% end %>
   
   

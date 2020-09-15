@@ -12,8 +12,10 @@
         </div>
         <div class = "row">
             <div class = "col-md-6 col-md-offset-3">
-               <div style="height:500px;overflow:auto;border:1px solid #aaa;padding:10px;">
-                <h2 style="text-align: center;"><%=safe_join(@musicpost.content.split("\n"),tag(:br))%></h2> 
+               <div style="height:800px;overflow:auto;border:1px solid #aaa;padding:10px;">
+                <h2 class="visible-md visible-lg" style="text-align: center;"><%=safe_join(@musicpost.content.split("\n"),tag(:br))%></h2> 
+                <h1 class="visible-xs visible-sm" style="text-align: center;font-size: 300%;font-weight:600;"><%=safe_join(@musicpost.content.split("\n"),tag(:br))%></h1> 
+
                </div> 
             </div>
         </div>

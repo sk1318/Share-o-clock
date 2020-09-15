@@ -2,7 +2,7 @@
 <div class="well well-lg f-container1 fixed">
  <% if logged_in? %>
   <div class="f-item1"><%= link_to "ホーム", root_path %></div>
-  <div class="f-item1"><%= link_to "自分の投稿一覧", user_path(current_user)%></div>
+  <div class="f-item1"><%= link_to "自分の投稿", user_path(current_user)%></div>
   <div  class="f-item1"><%= link_to "みんなの投稿", "/microposts/show" %></div>
    <div  class="f-item1"><%= link_to "ログアウト", logout_path, method: :delete %></div>
    <div  class="f-item1"><%= link_to "設定", edit_user_path(current_user) %></div>
