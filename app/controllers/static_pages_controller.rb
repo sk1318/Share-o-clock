@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-    @musicposts = MusicPost.all
+    @musicposts = MusicPost.order(:music_name)
     end
     
   end
