@@ -2,8 +2,8 @@
 Rails.application.routes.draw do
   root'static_pages#home'
   
-  get '/login',     to: 'sessions#new'
-  post '/login',    to: 'sessions#create'
+  get '/login',     to: 'static_pages#home'
+  post '/login',    to: 'static_pages#create'
   delete '/logout', to: 'sessions#destroy'
   get '/signup',    to: 'users#new'
   get "music/:music_id"  => "music#show"

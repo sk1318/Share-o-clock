@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
       redirect_to user
     else
       flash.now[:danger] = "emailもしくはpasswordが間違っています"
-      render "new"
+      render "static_pages/home"
     end
    end
 end
